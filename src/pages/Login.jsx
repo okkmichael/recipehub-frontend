@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 function Login() {
-  const { login: contextLogin } = useContext(AuthContext);
+  const { login: contextLogin, fetchUserData } = useContext(AuthContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
@@ -19,6 +19,7 @@ function Login() {
     e.preventDefault();
     try {
       await contextLogin(formData.username, formData.password);
+      await fetchUserData(); // <-- Add this line!
       navigate("/profile");
     } catch (err) {
       setError("Invalid credentials");
