@@ -33,6 +33,25 @@ const Profile = () => {
     }
   }, [authUser, apiUrl]);
 
+  const handleEdit = (recipeId) => {
+    // Handle edit logic here
+    console.log("Edit recipe with ID:", recipeId);
+  };
+
+  const handleDelete = async (recipeId) => {
+    try {
+      const token = localStorage.getItem("token");
+      await axios.delete(`${apiUrl}/recipes/${recipeId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setRecipes((prevRecipes) =>
+        prevRecipes.filter((recipe) => recipe._id !== recipeId)
+      );
+    } catch (err) {
+      console.error("Failed to delete recipe:", err);
+    }
+  };
+
   if (!user) return <div>Loading profile...</div>;
 
   return (
@@ -49,7 +68,13 @@ const Profile = () => {
         </h3>
         <ul>
           {(Array.isArray(recipes) ? recipes : []).map((recipe) => (
-            <li key={recipe._id}>{recipe.title}</li>
+            <li key={recipe._id}>
+              {recipe.title}
+              {/* Edit Button */}
+              <button onClick={() => handleEdit(recipe._id)}>Edit</button>
+              {/* Delete Button */}
+              <button onClick={() => handleDelete(recipe._id)}>Delete</button>
+            </li>
           ))}
         </ul>
       </div>

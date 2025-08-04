@@ -1,4 +1,3 @@
-// src/pages/RandomMeal.jsx
 import React, { useEffect, useState } from 'react';
 
 const RandomMeal = () => {
