@@ -10,17 +10,9 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const token = localStorage.getItem("token");
-        // Get current user info
-        const userRes = await axios.get("/api/users/me", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setUser(userRes.data);
-
-        // Only fetch recipes if userRes.data._id exists
-        if (userRes.data && userRes.data._id) {
+        if (authUser && authUser._id) {
           const recipesRes = await axios.get(
-            `/api/recipes/user/${userRes.data._id}`
+            `/api/recipes/user/${authUser._id}`
           );
           setRecipes(Array.isArray(recipesRes.data) ? recipesRes.data : []);
         } else {
@@ -28,11 +20,11 @@ const Profile = () => {
         }
       } catch (err) {
         console.error("Failed to fetch user profile:", err);
-        setRecipes([]); // Defensive: always set to array on error
+        setRecipes([]);
       }
     };
 
-    if (authUser?._id) {
+    if (authUser && authUser._id) {
       fetchUserProfile();
     }
   }, [authUser]);
