@@ -42,7 +42,7 @@ function Register() {
       }
 
       // After successful registration, log in the user
-      await login(formData.email, formData.password);
+      await login(formData.username, formData.password); // Use username, not email
       navigate("/profile");
     } catch (err) {
       setError("Registration failed");
