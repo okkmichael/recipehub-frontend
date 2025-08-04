@@ -32,23 +32,27 @@ const SavedRecipes = () => {
         <p className="text-gray-600">You haven’t saved any recipes yet.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {savedRecipes.map((recipe) => (
-            <div
-              key={recipe._id}
-              className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition"
-            >
-              <h2 className="text-xl font-semibold text-green-600 mb-2">
-                {recipe.title}
-              </h2>
-              <p className="text-gray-700 text-sm mb-2">{recipe.description}</p>
-              <p className="text-xs text-gray-500">
-                Saved on:{" "}
-                {recipe.savedAt
-                  ? new Date(recipe.savedAt).toLocaleDateString()
-                  : "N/A"}
-              </p>
-            </div>
-          ))}
+          {Array.isArray(savedRecipes)
+            ? savedRecipes.map((recipe) => (
+                <div
+                  key={recipe._id}
+                  className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition"
+                >
+                  <h2 className="text-xl font-semibold text-green-600 mb-2">
+                    {recipe.title}
+                  </h2>
+                  <p className="text-gray-700 text-sm mb-2">
+                    {recipe.description}
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    Saved on:{" "}
+                    {recipe.savedAt
+                      ? new Date(recipe.savedAt).toLocaleDateString()
+                      : "N/A"}
+                  </p>
+                </div>
+              ))
+            : null}
         </div>
       )}
     </div>

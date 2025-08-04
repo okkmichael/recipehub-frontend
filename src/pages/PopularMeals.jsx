@@ -21,12 +21,12 @@ const PopularMeals = () => {
     <div className="popular-meals">
       <h2>Popular Meals</h2>
       <div className="meal-grid">
-        {meals.map(meal => (
+        {Array.isArray(meals) ? meals.map(meal => (
           <div key={meal.idMeal} className="meal-card">
             <h3>{meal.strMeal}</h3>
             <img src={meal.strMealThumb} alt={meal.strMeal} />
           </div>
-        ))}
+        )) : null}
       </div>
     </div>
   );

@@ -64,26 +64,27 @@ const YourRecipes = () => {
         <p>No recipes found. Add some!</p>
       ) : (
         <ul className="space-y-4">
-          {Array.isArray(recipes) &&
-            recipes.map((recipe) => {
-              const isSaved = savedIds.includes(recipe._id);
-              return (
-                <li key={recipe._id} className="p-4 bg-white shadow rounded">
-                  <h2 className="text-xl font-semibold">{recipe.title}</h2>
-                  <p>{recipe.description}</p>
-                  <button
-                    onClick={() => handleSave(recipe._id, isSaved)}
-                    className={`px-4 py-2 rounded ${
-                      isSaved
-                        ? "bg-red-500 text-white"
-                        : "bg-green-500 text-white"
-                    }`}
-                  >
-                    {isSaved ? "Unsave" : "Save"}
-                  </button>
-                </li>
-              );
-            })}
+          {Array.isArray(recipes)
+            ? recipes.map((recipe) => {
+                const isSaved = savedIds.includes(recipe._id);
+                return (
+                  <li key={recipe._id} className="p-4 bg-white shadow rounded">
+                    <h2 className="text-xl font-semibold">{recipe.title}</h2>
+                    <p>{recipe.description}</p>
+                    <button
+                      onClick={() => handleSave(recipe._id, isSaved)}
+                      className={`px-4 py-2 rounded ${
+                        isSaved
+                          ? "bg-red-500 text-white"
+                          : "bg-green-500 text-white"
+                      }`}
+                    >
+                      {isSaved ? "Unsave" : "Save"}
+                    </button>
+                  </li>
+                );
+              })
+            : null}
         </ul>
       )}
     </div>

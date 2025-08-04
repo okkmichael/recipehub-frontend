@@ -47,7 +47,7 @@ const Profile = () => {
           Recipes by {user.username}
         </h3>
         <ul>
-          {recipes.map((recipe) => (
+          {(Array.isArray(recipes) ? recipes : []).map((recipe) => (
             <li key={recipe._id}>{recipe.title}</li>
           ))}
         </ul>

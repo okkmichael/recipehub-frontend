@@ -21,12 +21,14 @@ const Ingredients = () => {
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Ingredients List</h2>
       <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {ingredients.map((ingredient) => (
-          <li key={ingredient.idIngredient} className="border p-4 rounded shadow">
-            <h3 className="font-semibold">{ingredient.strIngredient}</h3>
-            <p className="text-sm text-gray-600">{ingredient.strDescription?.slice(0, 100)}...</p>
-          </li>
-        ))}
+        {Array.isArray(ingredients) ? (
+          ingredients.map((ingredient) => (
+            <li key={ingredient.idIngredient} className="border p-4 rounded shadow">
+              <h3 className="font-semibold">{ingredient.strIngredient}</h3>
+              <p className="text-sm text-gray-600">{ingredient.strDescription?.slice(0, 100)}...</p>
+            </li>
+          ))
+        ) : null}
       </ul>
     </div>
   );
