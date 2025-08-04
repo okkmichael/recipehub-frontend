@@ -60,4 +60,45 @@ function Login() {
   );
 }
 
+const Profile = () => {
+  const { user } = useAuth();
+
+  if (user === null) return <div>Not logged in</div>;
+  if (!user) return <div>Loading profile...</div>;
+
+  return (
+    <div>
+      <h1>Welcome, {user.username}!</h1>
+      <p>Email: {user.email}</p>
+    </div>
+  );
+};
+
+const fetchUserData = async () => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    setUser(null);
+    return;
+  }
+
+  try {
+    const response = await fetch(`${apiUrl}/users/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const data = await response.json();
+    console.log("fetchUserData response:", response.status, data);
+
+    if (!response.ok) throw new Error(data.message || "Failed to fetch user data");
+
+    setUser(data);
+  } catch (error) {
+    console.error("fetchUserData error:", error);
+    setUser(null);
+  }
+};
+
 export default Login;
