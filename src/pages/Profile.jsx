@@ -6,13 +6,17 @@ const Profile = () => {
   const { user: authUser } = useAuth();
   const [user, setUser] = useState(null);
   const [recipes, setRecipes] = useState([]);
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
         if (authUser && authUser._id) {
+          // Fetch user info if needed
+          setUser(authUser);
+          // Fetch recipes using full API URL
           const recipesRes = await axios.get(
-            `/api/recipes/user/${authUser._id}`
+            `${apiUrl}/recipes/user/${authUser._id}`
           );
           setRecipes(Array.isArray(recipesRes.data) ? recipesRes.data : []);
         } else {
@@ -27,7 +31,7 @@ const Profile = () => {
     if (authUser && authUser._id) {
       fetchUserProfile();
     }
-  }, [authUser]);
+  }, [authUser, apiUrl]);
 
   if (!user) return <div>Loading profile...</div>;
 
