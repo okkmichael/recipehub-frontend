@@ -17,13 +17,18 @@ const Profile = () => {
         });
         setUser(userRes.data);
 
-        // Get recipes for this user (update your backend if needed)
-        const recipesRes = await axios.get(
-          `/api/recipes/user/${userRes.data._id}`
-        );
-        setRecipes(recipesRes.data);
+        // Only fetch recipes if userRes.data._id exists
+        if (userRes.data && userRes.data._id) {
+          const recipesRes = await axios.get(
+            `/api/recipes/user/${userRes.data._id}`
+          );
+          setRecipes(Array.isArray(recipesRes.data) ? recipesRes.data : []);
+        } else {
+          setRecipes([]);
+        }
       } catch (err) {
         console.error("Failed to fetch user profile:", err);
+        setRecipes([]); // Defensive: always set to array on error
       }
     };
 
