@@ -54,8 +54,34 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
+  const fetchUserData = async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      setUser(null);
+      return;
+    }
+
+    try {
+      const response = await fetch(`${apiUrl}/users/me`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) throw new Error(data.message || "Failed to fetch user data");
+
+      setUser(data);
+    } catch (error) {
+      console.error(error);
+      setUser(null);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, register, logout, fetchUserData }}>
       {children}
     </AuthContext.Provider>
   );
