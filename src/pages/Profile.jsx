@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const { user: authUser } = useAuth();
   const [user, setUser] = useState(null);
   const [recipes, setRecipes] = useState([]);
   const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -34,8 +36,7 @@ const Profile = () => {
   }, [authUser, apiUrl]);
 
   const handleEdit = (recipeId) => {
-    // Handle edit logic here
-    console.log("Edit recipe with ID:", recipeId);
+    navigate(`/edit/${recipeId}`);
   };
 
   const handleDelete = async (recipeId) => {
