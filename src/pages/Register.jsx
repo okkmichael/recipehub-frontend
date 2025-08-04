@@ -19,6 +19,7 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // clear previous error
     try {
       const res = await fetch(`${apiUrl}/auth/register`, {
         method: "POST",
@@ -26,7 +27,19 @@ function Register() {
         body: JSON.stringify(formData),
       });
 
-      if (!res.ok) throw new Error("Registration failed");
+      let data = {};
+      try {
+        data = await res.json();
+      } catch {
+        // If response is not JSON, fallback to generic error
+        setError("Registration failed");
+        return;
+      }
+
+      if (!res.ok) {
+        setError(data.message || "Registration failed");
+        return; // Don't navigate away!
+      }
 
       // After successful registration, log in the user
       await login(formData.email, formData.password);
